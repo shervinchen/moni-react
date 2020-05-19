@@ -147,5 +147,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "svg-sprite-loader": "^5.0.0",
+    "svgo-loader": "^2.2.1"
   }
 }
