@@ -1,4 +1,8 @@
 import React from "react";
+import Tags from 'views/Tags';
+import Money from 'views/Money';
+import Statistics from 'views/Statistics';
+import NoMatch from 'views/NoMatch';
 
 import {
   HashRouter as Router,
@@ -6,7 +10,6 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Layout from "components/Layout";
 
 function App() {
   return (
@@ -27,34 +30,6 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
-}
-
-function NoMatch() {
-  return <div>页面不存在</div>;
-}
-
-function Statistics() {
-  return (
-    <Layout>
-      <h2>Statistics</h2>
-    </Layout>
-  );
-}
-
-function Tags() {
-  return (
-    <Layout>
-      <h2>Tags</h2>
-    </Layout>
-  );
-}
-
-function Money() {
-  return (
-    <Layout>
-      <h2>Money</h2>
-    </Layout>
   );
 }
 
