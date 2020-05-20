@@ -32,7 +32,26 @@ const TagsSection = styled.section`
   }
 `;
 
-const NotesSection = styled.section``;
+const NotesSection = styled.section`
+  background: #f5f5f5;
+  padding: 12px 0;
+  > label {
+    font-size: 14px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    > span {
+      padding-right: 16px;
+      white-space: nowrap;
+    }
+    > input {
+      height: 40px;
+      flex-grow: 1;
+      background: transparent;
+      border: none;
+    }
+  }
+`;
 
 const CategorySection = styled.section``;
 
@@ -55,7 +74,7 @@ const Money = () => {
       <NotesSection>
         <label>
           <span>备注</span>
-          <input type="text"/>
+          <input type="text" placeholder="在这里输入备注" />
         </label>
       </NotesSection>
       <CategorySection>
