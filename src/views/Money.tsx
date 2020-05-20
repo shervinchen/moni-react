@@ -21,31 +21,33 @@ const Money = () => {
     category: "-" as Category,
     amount: 0,
   });
+  const onChange = (object: Partial<typeof record>) => {
+    setRecord({
+      ...record,
+      ...object,
+    });
+  };
   return (
     <MyLayout>
-      {record.tags.join(',')}
+      {record.tags.join(",")}
       {record.note}
       {record.amount}
-      <NumberPadSection value={record.amount} onChange={(amount) => setRecord({
-        ...record,
-        amount
-      })} onOk={() => {}} />
-      <CategorySection value={record.category} onChange={(category) => setRecord({
-        ...record,
-        category
-      })} />
-      <NoteSection value={record.note} onChange={(note) => setRecord({
-        ...record,
-        note
-      })} />
+      <NumberPadSection
+        value={record.amount}
+        onChange={amount => onChange({ amount })}
+        onOk={() => {}}
+      />
+      <CategorySection
+        value={record.category}
+        onChange={category => onChange({ category })}
+      />
+      <NoteSection
+        value={record.note}
+        onChange={note => onChange({ note })}
+      />
       <TagsSection
         value={record.tags}
-        onChange={(tags) =>
-          setRecord({
-            ...record,
-            tags,
-          })
-        }
+        onChange={tags => onChange({ tags })}
       />
     </MyLayout>
   );
