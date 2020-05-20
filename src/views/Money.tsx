@@ -3,7 +3,7 @@ import Layout from "components/Layout";
 import styled from "styled-components";
 
 import TagsSection from './Money/TagsSection'
-import NotesSection from './Money/NotesSection'
+import NoteSection from './Money/NoteSection'
 import CategorySection from './Money/CategorySection'
 import NumberPadSection from './Money/NumberPadSection'
 
@@ -40,15 +40,8 @@ const Money = () => {
           <li>收入</li>
         </ul>
       </CategorySection>
-      <NotesSection>
-        <label>
-          <span>备注</span>
-          <input type="text" placeholder="在这里输入备注" />
-        </label>
-      </NotesSection>
-      <TagsSection>
-        
-      </TagsSection>
+      <NoteSection />
+      <TagsSection />
     </MyLayout>
   );
 };
