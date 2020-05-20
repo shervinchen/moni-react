@@ -23,12 +23,14 @@ const TagsSection = styled.section`
       margin-top: 4px;
     }
   }
-  button {
-    background: transparent;
-    border: none;
-    color: #999;
-    border-bottom: 1px solid;
-    padding: 0 4px;
+  > p {
+    > button {
+      background: transparent;
+      border: none;
+      color: #999;
+      border-bottom: 1px solid;
+      padding: 0 4px;
+    }
   }
 `;
 
@@ -53,7 +55,31 @@ const NotesSection = styled.section`
   }
 `;
 
-const CategorySection = styled.section``;
+const CategorySection = styled.section`
+  > ul {
+    background: #c4c4c4;
+    display: flex;
+    text-align: center;
+    font-size: 24px;
+    > li {
+      width: 50%;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &.selected::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #333;
+      }
+    }
+  }
+`;
 
 const NumberPadSection = styled.section``;
 
@@ -61,9 +87,9 @@ const Money = () => {
   return (
     <Layout>
       <TagsSection>
-        <div>
+        <p>
           <button>新增标签</button>
-        </div>
+        </p>
         <ol>
           <li>衣</li>
           <li>食</li>
@@ -79,7 +105,7 @@ const Money = () => {
       </NotesSection>
       <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className="selected">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
