@@ -34,12 +34,7 @@ const Money = () => {
           <button>.</button>
         </div>
       </NumberPadSection>
-      <CategorySection>
-        <ul>
-          <li className="selected">支出</li>
-          <li>收入</li>
-        </ul>
-      </CategorySection>
+      <CategorySection />
       <NoteSection />
       <TagsSection />
     </MyLayout>
