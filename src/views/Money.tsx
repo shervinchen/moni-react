@@ -29,9 +29,6 @@ const Money = () => {
   };
   return (
     <MyLayout>
-      {record.tags.join(",")}
-      {record.note}
-      {record.amount}
       <NumberPadSection
         value={record.amount}
         onChange={amount => onChange({ amount })}
