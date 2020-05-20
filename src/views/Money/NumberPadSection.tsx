@@ -1,6 +1,7 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const NumberPadSection = styled.section`
+const Wrapper = styled.section`
 display: flex;
 flex-direction: column;
 > .output {
@@ -57,5 +58,75 @@ flex-direction: column;
   }
 }
 `;
+
+const NumberPadSection: React.FC = () => {
+  const [output, setOutput] = useState('0')
+  const remove = () => {
+    if (output.length === 1) {
+      setOutput("0");
+    } else {
+      setOutput(output.slice(0, -1))
+    }
+  }
+  const clear = () => {
+    setOutput("0");
+  }
+  const ok = () => {
+    const number = parseFloat(output)
+    console.log(number)
+    setOutput("0");
+  }
+  const setNumber = (input: string) => {
+    if (output.length === 16) {
+      return;
+    }
+    if (output === "0") {
+      if ("0123456789".indexOf(input) >= 0) {
+        setOutput(input);
+      } else {
+        setOutput(output + input);
+      }
+      return;
+    }
+    if (output.indexOf(".") >= 0 && input === ".") {
+      return;
+    }
+    setOutput(output + input);
+  }
+  const onClickButtonWrapper = (e: React.MouseEvent) => {
+    const button = e.target as HTMLButtonElement
+    const input = button.textContent as string
+    if (input === '删除') {
+      remove()
+    } else if (input === '清空') {
+      clear()
+    } else if (input === 'OK') {
+      ok()
+    } else {
+      setNumber(input)
+    }
+  }
+  return (
+    <Wrapper>
+      <div className="output">{output}</div>
+      <div className="pad clearfix" onClick={onClickButtonWrapper}>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>删除</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>清空</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button className="ok">OK</button>
+        <button className="zero">0</button>
+        <button>.</button>
+      </div>
+    </Wrapper>
+  )
+}
 
 export default NumberPadSection
