@@ -5,6 +5,7 @@ import styled from "styled-components";
 const TagsSection = styled.section`
   display: flex;
   flex-direction: column-reverse;
+  align-items: flex-start;
   flex-grow: 1;
   background: #fff;
   padding: 16px;
@@ -23,14 +24,12 @@ const TagsSection = styled.section`
       margin-top: 4px;
     }
   }
-  > p {
-    > button {
-      background: transparent;
-      border: none;
-      color: #999;
-      border-bottom: 1px solid;
-      padding: 0 4px;
-    }
+  > button {
+    background: transparent;
+    border: none;
+    color: #999;
+    border-bottom: 1px solid;
+    padding: 0 4px;
   }
 `;
 
@@ -139,32 +138,14 @@ const NumberPadSection = styled.section`
   }
 `;
 
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column-reverse;
+`;
+
 const Money = () => {
   return (
-    <Layout>
-      <TagsSection>
-        <p>
-          <button>新增标签</button>
-        </p>
-        <ol>
-          <li>衣</li>
-          <li>食</li>
-          <li>住</li>
-          <li>行</li>
-        </ol>
-      </TagsSection>
-      <NotesSection>
-        <label>
-          <span>备注</span>
-          <input type="text" placeholder="在这里输入备注" />
-        </label>
-      </NotesSection>
-      <CategorySection>
-        <ul>
-          <li className="selected">支出</li>
-          <li>收入</li>
-        </ul>
-      </CategorySection>
+    <MyLayout>
       <NumberPadSection>
         <div className="output">100</div>
         <div className="pad clearfix">
@@ -184,7 +165,28 @@ const Money = () => {
           <button>.</button>
         </div>
       </NumberPadSection>
-    </Layout>
+      <CategorySection>
+        <ul>
+          <li className="selected">支出</li>
+          <li>收入</li>
+        </ul>
+      </CategorySection>
+      <NotesSection>
+        <label>
+          <span>备注</span>
+          <input type="text" placeholder="在这里输入备注" />
+        </label>
+      </NotesSection>
+      <TagsSection>
+        <button>新增标签</button>
+        <ol>
+          <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+        </ol>
+      </TagsSection>
+    </MyLayout>
   );
 };
 
