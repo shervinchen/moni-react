@@ -22,9 +22,12 @@ const defaultTags = [
 
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number, name: string }[]>(defaultTags);
+  // TODO 404
+  const findTag = (id: number) => tags.filter(tag => tag.id === id)[0]
   return {
     tags,
     setTags,
+    findTag
   };
 };
 
