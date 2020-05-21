@@ -33,9 +33,9 @@ const Money = () => {
     });
   };
   const submit = () => {
-    addRecord({...record, createdAt: new Date().toISOString()})
-    window.alert('保存成功')
-    setRecord(defalutRecord)
+    if (addRecord({...record, createdAt: new Date().toISOString()})) {
+      setRecord(defalutRecord)
+    }
   }
   // parseFloat(record.amount)
   return (
