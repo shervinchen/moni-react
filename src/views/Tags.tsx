@@ -37,7 +37,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const Tags = () => {
-  const { tags } = useTags();
+  const { tags, addTag } = useTags();
   return (
     <Layout>
       <TagList>
@@ -51,7 +51,7 @@ const Tags = () => {
         ))}
       </TagList>
       <ButtonWrapper>
-        <Button>新建标签</Button>
+        <Button onClick={addTag}>新建标签</Button>
       </ButtonWrapper>
     </Layout>
   );
