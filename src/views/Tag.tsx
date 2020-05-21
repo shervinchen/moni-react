@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler } from "react";
 import useTags from "useTags";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
 import styled from "styled-components";
@@ -48,10 +48,14 @@ const Tag = () => {
       name: e.target.value,
     });
   };
+  const history = useHistory()
+  const goBack = () => {
+    history.goBack()
+  }
   return (
     <Layout>
       <NavBar>
-        <Icon name="left" />
+        <Icon name="left" onClick={goBack} />
         <span className="title">编辑标签</span>
         <Icon />
       </NavBar>
