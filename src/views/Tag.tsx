@@ -40,12 +40,12 @@ const ButtonWrapper = styled.div`
 `;
 
 const Tag = () => {
-  const { findTag, updateTag } = useTags();
+  const { findTag, updateTag, deleteTag } = useTags();
   const { id } = useParams<Params>();
   const tag = findTag(parseInt(id));
-  const onChange:ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     updateTag(tag.id, {
-      name: e.target.value
+      name: e.target.value,
     });
   };
   return (
@@ -55,19 +55,25 @@ const Tag = () => {
         <span className="title">编辑标签</span>
         <Icon />
       </NavBar>
-      <InputWrapper>
-        <Input
-          type="text"
-          label="标签名"
-          placeholder="请输入标签名"
-          value={tag.name}
-          onChange={onChange}
-        ></Input>
-      </InputWrapper>
-      <ButtonWrapper>
-        {/* <Button @click="save">保存</Button> */}
-        <Button>删除</Button>
-      </ButtonWrapper>
+      {tag ? (
+        <div>
+          <InputWrapper>
+            <Input
+              type="text"
+              label="标签名"
+              placeholder="请输入标签名"
+              value={tag.name}
+              onChange={() => onChange}
+            ></Input>
+          </InputWrapper>
+          <ButtonWrapper>
+            {/* <Button @click="save">保存</Button> */}
+            <Button onClick={() => deleteTag(tag.id)}>删除</Button>
+          </ButtonWrapper>
+        </div>
+      ) : (
+        <div>tag 不存在</div>
+      )}
     </Layout>
   );
 };
