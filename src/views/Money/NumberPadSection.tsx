@@ -10,7 +10,7 @@ type Props = {
 
 const NumberPadSection: React.FC<Props> = (props) => {
   const { value, onChange, onOk } = props
-  const output = value.toString()
+  const output = value
   const ok = () => {
     if (onOk) {
       onOk()
