@@ -3,8 +3,8 @@ import Wrapper from "./NumberPadSection/Wrapper";
 import generateOutput from "./NumberPadSection/generateOutput";
 
 type Props = { 
-  value: number;
-  onChange: (value: number) => void;
+  value: string;
+  onChange: (value: string) => void;
   onOk?: () => void;
 }
 
@@ -15,7 +15,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
     if (onOk) {
       onOk()
     }
-    onChange(0);
+    onChange('0');
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const button = e.target as HTMLButtonElement;
@@ -28,7 +28,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
       return;
     }
     const result = generateOutput(output, input)
-    onChange(parseFloat(result));
+    onChange(result);
     // setOutput(result)
   };
   return (

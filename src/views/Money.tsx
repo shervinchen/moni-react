@@ -19,7 +19,7 @@ const Money = () => {
     tagIds: [] as number[],
     note: "",
     category: "-" as Category,
-    amount: 0,
+    amount: '0',
   });
   const onChange = (object: Partial<typeof record>) => {
     setRecord({
@@ -27,6 +27,7 @@ const Money = () => {
       ...object,
     });
   };
+  // parseFloat(record.amount)
   return (
     <MyLayout>
       <NumberPadSection
