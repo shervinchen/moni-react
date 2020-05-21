@@ -5,6 +5,8 @@ import Icon from "components/Icon";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import Button from "components/Button"
+
 const TagList = styled.ol`
   background: #fff;
   font-size: 16px;
@@ -24,15 +26,6 @@ const TagList = styled.ol`
       }
     }
   }
-`;
-
-const Button = styled.button`
-  background: #767676;
-  color: #fff;
-  border-radius: 4px;
-  border: none;
-  height: 40px;
-  padding: 0 16px;
 `;
 
 const ButtonWrapper = styled.div`
