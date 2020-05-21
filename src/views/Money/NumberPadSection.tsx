@@ -15,7 +15,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
     if (onOk) {
       onOk()
     }
-    onChange('0');
+    // onChange('0');
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const button = e.target as HTMLButtonElement;

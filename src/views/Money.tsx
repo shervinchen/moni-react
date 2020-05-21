@@ -6,6 +6,7 @@ import TagsSection from "./Money/TagsSection";
 import NoteSection from "./Money/NoteSection";
 import CategorySection from "./Money/CategorySection";
 import NumberPadSection from "./Money/NumberPadSection";
+import useRecords from "hooks/useRecords";
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -14,26 +15,35 @@ const MyLayout = styled(Layout)`
 
 type Category = "-" | "+";
 
+const defalutRecord = {
+  tagIds: [] as number[],
+  note: "",
+  category: "-" as Category,
+  amount: '0',
+  createdAt: ""
+}
+
 const Money = () => {
-  const [record, setRecord] = useState({
-    tagIds: [] as number[],
-    note: "",
-    category: "-" as Category,
-    amount: '0',
-  });
+  const [record, setRecord] = useState(defalutRecord);
+  const {addRecord} = useRecords()
   const onChange = (object: Partial<typeof record>) => {
     setRecord({
       ...record,
       ...object,
     });
   };
+  const submit = () => {
+    addRecord({...record, createdAt: new Date().toISOString()})
+    window.alert('保存成功')
+    setRecord(defalutRecord)
+  }
   // parseFloat(record.amount)
   return (
     <MyLayout>
       <NumberPadSection
         value={record.amount}
         onChange={amount => onChange({ amount })}
-        onOk={() => {}}
+        onOk={submit}
       />
       <CategorySection
         value={record.category}
