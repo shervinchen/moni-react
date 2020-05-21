@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import useTags from "useTags";
 import { useParams } from "react-router-dom";
 import Layout from "components/Layout";
@@ -8,8 +8,8 @@ import Button from "components/Button";
 import Input from "components/Input";
 
 type Params = {
-  id: string
-}
+  id: string;
+};
 
 const NavBar = styled.header`
   text-align: center;
@@ -25,24 +25,29 @@ const NavBar = styled.header`
   }
 `;
 
-const Wrapper = styled.div`
+const InputWrapper = styled.div`
   background: #fff;
   margin-top: 8px;
 `;
 
 const ButtonWrapper = styled.div`
-text-align: center;
-padding: 16px;
-margin-top: 28px;
-> button {
-  margin: 0 16px;
-}
+  text-align: center;
+  padding: 16px;
+  margin-top: 28px;
+  > button {
+    margin: 0 16px;
+  }
 `;
 
 const Tag = () => {
-  const { findTag } = useTags()
-  const { id } = useParams<Params>()
-  const tag = findTag(parseInt(id))
+  const { findTag, updateTag } = useTags();
+  const { id } = useParams<Params>();
+  const tag = findTag(parseInt(id));
+  const onChange:ChangeEventHandler<HTMLInputElement> = (e) => {
+    updateTag(tag.id, {
+      name: e.target.value
+    });
+  };
   return (
     <Layout>
       <NavBar>
@@ -50,13 +55,15 @@ const Tag = () => {
         <span className="title">编辑标签</span>
         <Icon />
       </NavBar>
-      <Wrapper>
-        {/* <Input type="text"
-        label="标签名"
-        placeholder="请输入标签名"
-        value={tag.name}
-        onChange={onChange}></Input> */}
-      </Wrapper>
+      <InputWrapper>
+        <Input
+          type="text"
+          label="标签名"
+          placeholder="请输入标签名"
+          value={tag.name}
+          onChange={onChange}
+        ></Input>
+      </InputWrapper>
       <ButtonWrapper>
         {/* <Button @click="save">保存</Button> */}
         <Button>删除</Button>
