@@ -19,11 +19,11 @@ npm start
 ## 打包
 
 ```
-npm run-script build
+npm run build
 ```
 
 ## 部署
 
 ```
-sh deploy.sh
+npm run deploy
 ```
