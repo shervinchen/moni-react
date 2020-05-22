@@ -18,7 +18,7 @@ const useRecords = () => {
   }, []);
   useUpdate(() => {
     window.localStorage.setItem("records", JSON.stringify(records));
-  }, [records]);
+  }, records);
   const addRecord = (record: RecordItem) => {
     if (parseFloat(record.amount) <= 0) {
       return alert('请输入金额');

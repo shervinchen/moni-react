@@ -30,7 +30,7 @@ const useTags = () => {
   }, []);
   useUpdate(() => {
     window.localStorage.setItem("tags", JSON.stringify(tags));
-  }, [tags]);
+  }, tags);
   // TODO 404
   const findTag = (id: number) => tags.filter((tag) => tag.id === id)[0];
   const findTagIndex = (id: number) => {
