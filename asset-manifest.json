@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/moni-react/static/css/main.d0661179.chunk.css",
+    "main.js": "/moni-react/static/js/main.b416330c.chunk.js",
+    "main.js.map": "/moni-react/static/js/main.b416330c.chunk.js.map",
+    "runtime-main.js": "/moni-react/static/js/runtime-main.8142aebf.js",
+    "runtime-main.js.map": "/moni-react/static/js/runtime-main.8142aebf.js.map",
+    "static/js/2.d68925af.chunk.js": "/moni-react/static/js/2.d68925af.chunk.js",
+    "static/js/2.d68925af.chunk.js.map": "/moni-react/static/js/2.d68925af.chunk.js.map",
+    "index.html": "/moni-react/index.html",
+    "precache-manifest.fd1cbdd20c8b8246e1edcb6b61dfda75.js": "/moni-react/precache-manifest.fd1cbdd20c8b8246e1edcb6b61dfda75.js",
+    "service-worker.js": "/moni-react/service-worker.js",
+    "static/css/main.d0661179.chunk.css.map": "/moni-react/static/css/main.d0661179.chunk.css.map",
+    "static/js/2.d68925af.chunk.js.LICENSE.txt": "/moni-react/static/js/2.d68925af.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8142aebf.js",
+    "static/js/2.d68925af.chunk.js",
+    "static/css/main.d0661179.chunk.css",
+    "static/js/main.b416330c.chunk.js"
+  ]
+}
