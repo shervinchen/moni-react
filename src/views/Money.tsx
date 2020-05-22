@@ -43,7 +43,7 @@ const Money = () => {
   }
   // parseFloat(record.amount)
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
       <NumberPadSection
         value={record.amount}
         onChange={amount => onChange({ amount })}
