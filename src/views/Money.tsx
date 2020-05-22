@@ -23,6 +23,10 @@ const defalutRecord = {
   createdAt: ""
 }
 
+const CategoryWrapper = styled.div`
+  background: #c4c4c4;
+`
+
 const Money = () => {
   const [record, setRecord] = useState(defalutRecord);
   const {addRecord} = useRecords()
@@ -45,10 +49,12 @@ const Money = () => {
         onChange={amount => onChange({ amount })}
         onOk={submit}
       />
-      <CategorySection
-        value={record.category}
-        onChange={category => onChange({ category })}
-      />
+      <CategoryWrapper>
+        <CategorySection
+          value={record.category}
+          onChange={category => onChange({ category })}
+        />
+      </CategoryWrapper>
       <NoteSection
         value={record.note}
         onChange={note => onChange({ note })}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   > ul {
-    background: #c4c4c4;
+    /* background: #c4c4c4; */
     display: flex;
     text-align: center;
     font-size: 24px;

@@ -59,6 +59,10 @@ const useTags = () => {
       setTags([...tags, { id: createId(), name: tagName }]);
     }
   };
+  const getTagName = (id: number) => {
+    const tag = tags.filter(tag => tag.id === id)[0]
+    return tag ? tag.name : ''
+  }
   return {
     tags,
     setTags,
@@ -67,6 +71,7 @@ const useTags = () => {
     findTagIndex,
     deleteTag,
     addTag,
+    getTagName
   };
 };
 
